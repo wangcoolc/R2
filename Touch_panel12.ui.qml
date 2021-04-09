@@ -68,7 +68,7 @@ Item {
         height: 35
         color: "#6c6c6c"
         text: "N/A"
-        font.pixelSize: 30
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -82,7 +82,7 @@ Item {
         height: 37
         color: "#000000"
         text: "Wi-Fi Connection"
-        font.pixelSize: 38
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -96,7 +96,7 @@ Item {
         height: 30
         color: "#6c6c6c"
         text: "192.168.2.101"
-        font.pixelSize: 30
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -110,7 +110,7 @@ Item {
         height: 38
         color: "#000000"
         text: "Ethernet Connection"
-        font.pixelSize: 38
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -124,7 +124,7 @@ Item {
         height: 30
         color: "#6c6c6c"
         text: "5.4"
-        font.pixelSize: 30
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -138,7 +138,7 @@ Item {
         height: 38
         color: "#000000"
         text: "Kernal Version"
-        font.pixelSize: 38
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -152,7 +152,7 @@ Item {
         height: 37
         color: "#6c6c6c"
         text: "Raspberry Pi OS: March. 12th 2021"
-        font.pixelSize: 30
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -166,7 +166,7 @@ Item {
         height: 46
         color: "#000000"
         text: "Operating System Version"
-        font.pixelSize: 38
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -180,7 +180,7 @@ Item {
         height: 30
         color: "#6c6c6c"
         text: "RT02CM4"
-        font.pixelSize: 30
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -194,7 +194,7 @@ Item {
         height: 38
         color: "#000000"
         text: "Wio Terminal Build-Code"
-        font.pixelSize: 38
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -208,7 +208,7 @@ Item {
         height: 30
         color: "#6c6c6c"
         text: "CM4104032"
-        font.pixelSize: 30
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -222,7 +222,7 @@ Item {
         height: 46
         color: "#000000"
         text: "Raspberry Pi Compute Module 4"
-        font.pixelSize: 38
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Regular"
@@ -236,7 +236,7 @@ Item {
         height: 53
         color: "#000000"
         text: "System Information"
-        font.pixelSize: 45
+        font.pixelSize: 32
         horizontalAlignment: Text.AlignLeft
         font.family: "Source Sans Pro"
         font.styleName: "Bold"
