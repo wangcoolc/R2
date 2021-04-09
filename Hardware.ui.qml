@@ -84,17 +84,17 @@ Item {
         scale: 0.67
     }
 
-    Leds {
-        id: leds
+    Leds_v2 {
+        id: leds_v2
         x: 566
         y: -50
         width: 835
         height: 481
         scale: 0.67
-        o1Visible: Data.Values.o1Visible
-        f3Visible: Data.Values.f3Visible
-        f2Visible: Data.Values.f2Visible
-        f1Visible: Data.Values.f1Visible
+        o_buttonVisible: Data.Values.o1Visible
+        f3_buttonVisible: Data.Values.f3Visible
+        f2_buttonVisible: Data.Values.f2Visible
+        f1_buttonVisible: Data.Values.f1Visible
     }
 
     Ui_navigate_4 {
