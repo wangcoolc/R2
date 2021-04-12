@@ -18,21 +18,21 @@ ApplicationWindow {
         // transform: Rotation {
         //     origin.x: 600; origin.y:500; angle: 90
         // }
-        replaceEnter: Transition {
+        pushEnter: Transition {
                   PropertyAnimation{
                       property: "opacity"
                       from: 0
                       to: 1
-                      duration: 1/20
+                      duration: 1/100
                   }
               }
 
-        replaceExit: Transition {
+        pushExit: Transition {
                   PropertyAnimation{
                       property: "opacity"
                       from: 1
                       to: 0
-                      duration: 1/20
+                      duration: 1/100
                   }
         }
 
@@ -54,7 +54,7 @@ ApplicationWindow {
         opacity: 0
         scale: 0.76
         onClicked: {
-            stackview.replace("Home.ui.qml")
+            stackview.push("Home.ui.qml",StackView.Immediate,true)
         }
     }
 
@@ -67,7 +67,7 @@ ApplicationWindow {
             opacity: 0
             scale: 0.76
             onClicked: {
-                stackview.replace("Ui.ui.qml")
+                stackview.push("Ui.ui.qml",StackView.Immediate,true)
             }
         }
 
@@ -81,7 +81,7 @@ ApplicationWindow {
             opacity: 0
             scale: 0.76
             onClicked: {
-                stackview.replace("Hmi_config.ui.qml")
+                stackview.push("Hmi_config.ui.qml",StackView.Immediate,true)
             }
         }
 
@@ -94,7 +94,7 @@ ApplicationWindow {
         opacity: 0
         scale: 0.76
         onClicked: {
-            stackview.replace("Ui.ui.qml")
+            stackview.push("Ui.ui.qml",StackView.Immediate,true)
         }
     }
 
@@ -107,7 +107,7 @@ ApplicationWindow {
         opacity: 0
         scale: 0.76
         onClicked: {
-            stackview.replace("Hardware.ui.qml")
+            stackview.push("Hardware.ui.qml",StackView.Immediate,true)
         }
     }
 
@@ -120,7 +120,7 @@ ApplicationWindow {
         opacity: 0
         scale: 0.76
         onClicked: {
-            stackview.replace("Hmi_config.ui.qml")
+            stackview.push("Hmi_config.ui.qml",StackView.Immediate,true)
         }
     }
 
@@ -133,7 +133,7 @@ ApplicationWindow {
         opacity: 0
         scale: 0.76
         onClicked: {
-            stackview.replace("Settings.ui.qml")
+            stackview.push("Settings.ui.qml",StackView.Immediate,true)
         }
     }
 
