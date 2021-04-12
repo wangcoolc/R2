@@ -1,4 +1,4 @@
-import sys
+import sys,logging
 import os
 from PySide2.QtCore import *
 class StorageUsage(QThread):
@@ -17,11 +17,11 @@ class StorageUsage(QThread):
                 DISK_total = int(str(DISK_stats[0][0:2]))
                 DISK_used = int(str(DISK_stats[1][0:2]))
 
-                # print("DISK_total",DISK_total)
-                # print("DISK_used",DISK_used)
+                # logging.info("DISK_total",DISK_total)
+                # logging.info("DISK_used",DISK_used)
 
                 val = round(int((DISK_used / DISK_total) * 100),0)
-                # print("StorageUsage",val)
+                # logging.info("StorageUsage",val)
                 self.StoragSignal.emit(int(val))
                 self.sleep(1)
                 p = os.popen("df -h /")

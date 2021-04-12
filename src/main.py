@@ -1,5 +1,5 @@
 # This Python file uses the following encoding: utf-8
-import os, random
+import os, logging
 import sys
 import PySide2.QtQml
 from PySide2.QtQml import QQmlApplicationEngine
@@ -21,6 +21,8 @@ intputdevPath  = '/dev/input/'
 tpfilePath = None
 LedsKeyPath = None
 AcceleratorPath = None
+LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
+LOG_NAME = "my.log"
 
 
 #定时器的方式
@@ -44,6 +46,7 @@ AcceleratorPath = None
 # 线程的方式
 if __name__ == '__main__':
     app = QApplication([])
+    logging.basicConfig(filename=LOG_NAME,level=logging.DEBUG,format=LOG_FORMAT)
     # view = QQuickView()
     engine = QQmlApplicationEngine()
     url = QUrl("../NewbuttonUI.qml")
@@ -56,7 +59,10 @@ if __name__ == '__main__':
     for num in range(0,number):
         namePath ="/sys/class/input/event%d/device/name"%(num)
         if os.path.isfile(namePath):
-            f = open(namePath,'r')
+            try:
+                f = open(namePath,'r')
+            except IOError:
+                logging.error("open input device name file faild")
             devname = f.read().split('\n')[0]
             if devname == 'seeed-tp':
                 tpfilePath = intputdevPath + "event%d"%(num)
@@ -66,7 +72,8 @@ if __name__ == '__main__':
                 f.close()
             if devname == 'ST LIS3LV02DL Accelerometer':
                 AcceleratorPath = intputdevPath + "event%d"%(num)
-                f.close()           
+                f.close()
+
     os.chdir(appFilePath)
 
     cpu = CpuUsage()
@@ -80,15 +87,22 @@ if __name__ == '__main__':
         touchpanel = TouchPanel(tpfilePath)
         context.setContextProperty("_TouchPanel", touchpanel)
         touchpanel.start()
+    else:
+        logging.debug("touch panel device file path is wrong!")
+
     if LedsKeyPath:
         ledkey = LedsKey(LedsKeyPath)
         context.setContextProperty("_LedsKey", ledkey)
         ledkey.start()
+    else:
+        logging.debug("gpio_keys device file path is wrong!")
+
     if AcceleratorPath:
         axis = Accelerator(AcceleratorPath)
         context.setContextProperty("_Accelerator", axis)
         axis.start()
-
+    else:
+        logging.debug("Accelerator device file path is wrong!")
 
     # context = view.rootContext()
     context.setContextProperty("_CpuUsage", cpu)

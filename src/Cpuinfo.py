@@ -1,4 +1,4 @@
-import sys
+import sys,logging
 import os
 from PySide2.QtCore import *
 class CpuUsage(QThread):
@@ -10,7 +10,7 @@ class CpuUsage(QThread):
         while True:
             p = os.popen("top -n1 | awk '/Cpu\(s\):/ {print $2}'").readline().strip("\n")
             cpu_used = int(float(p))
-            # print("CpuUsage",cpu_used)
+            # logging.info("CpuUsage",cpu_used)
             self.CpuSignal.emit(int(cpu_used))
             self.sleep(1)
 
@@ -23,6 +23,6 @@ class Cputemperature(QThread):
         while True:
             f = open("/sys/class/thermal/thermal_zone0/temp",'r')
             temp = int(f.read().strip("\n"))/1000
-            # print("Cputemperature",temp)
+            # logging.info("Cputemperature",temp)
             self.CputemSignal.emit(int(temp))
             self.sleep(1)

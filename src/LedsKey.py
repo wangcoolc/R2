@@ -9,7 +9,7 @@ class LedsKey(QThread):
         super().__init__()
         if path:
             self.Path = path
-    
+                
     def run(self):    
         while True:
             key = InputDevice(self.Path)

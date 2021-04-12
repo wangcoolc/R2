@@ -13,13 +13,10 @@ class Accelerator(QThread):
     def run(self):    
         while True:
             abs = InputDevice(self.Path)
-            # print(abs)
-
             for event in abs.read_loop():
                 if event.type == ecodes.EV_ABS:
                     val = repr(event)
                     val_list = val.replace('(','').replace(')','').replace(' ','').split(',')
-                    # print(val_list[3],val_list[4])
                     if val_list[3] == '0':
                         axis_x = int(val_list[4])
                         self.AxisSignal.emit(axis_x,'x')
