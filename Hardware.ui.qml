@@ -36,15 +36,15 @@ Item {
 
         property int count: 0
         function timerChange() {
-        // axisX.append(count,Data.Values.displayaxisX)
-        // axisY.append(count,Data.Values.displayaxisY)
-        // axisZ.append(count,Data.Values.displayaxisZ)
-        // count = count + 1
-        // if ((accel1.count % 5) == 0 ) {
-            // accel1.axisX.remove(0)
-            // accel1.axisY.remove(0)
-            // accel1.axisZ.remove(0)
-            // }
+        axisX.append(count,Data.Values.displayaxisX)
+        axisY.append(count,Data.Values.displayaxisY)
+        axisZ.append(count,Data.Values.displayaxisZ)
+        count = count + 1
+        if (accel1.count > 6 ) {
+        axisX.remove(0)
+        axisY.remove(0)
+        axisZ.remove(0)
+        }
         }
     }
 

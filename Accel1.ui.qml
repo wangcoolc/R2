@@ -40,8 +40,8 @@ Item {
         //X轴
         ValueAxis {
             id: valueAxisX
-            min: 0
-            max: 6 //5>=axisXvalue ? 5:axisXvalue+1
+            min: 5>=axisXvalue ? 0:axisXvalue-5
+            max: 5>=axisXvalue ? 5:axisXvalue - 1
             tickCount: 6
         }
 
