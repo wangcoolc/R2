@@ -7,6 +7,7 @@ Item {
     height: 720
 
     property alias axisXvalue: accel1.count
+    property alias lightaxisXvalue: light.lightcount
 
     Image {
         id: hardwareAsset
@@ -24,6 +25,22 @@ Item {
         width: 833
         height: 480
         scale: 0.67
+
+        property int lightcount: 0
+        function lightimerChange() {
+        lightaxisX.append(lightcount,Data.Values.lightvalue)
+        lightcount = lightcount + 1
+        if (lightcount > 6 ) {
+            lightaxisX.remove(0)
+        }
+        }
+    }
+
+    property Timer lightTimer: Timer{
+        running: true
+        repeat: true
+        onTriggered: light.lightimerChange()
+        interval: 100
     }
 
     Accel1 {

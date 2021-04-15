@@ -15,12 +15,14 @@ from LedsKey import LedsKey
 from TouchPanel import TouchPanel
 from SystemInfo import Systeminfo
 from SystemSet import Settting
+from Light import LightSensor
 
 deviceFilePath = '/sys/class/input/'
 intputdevPath  = '/dev/input/'
 tpfilePath = None
 LedsKeyPath = None
 AcceleratorPath = None
+LightPath = None
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 LOG_NAME = "my.log"
 
@@ -82,6 +84,7 @@ if __name__ == '__main__':
     Storage = StorageUsage()
     sysinfo = Systeminfo()
     seting = Settting()
+    light = LightSensor()
 
     if tpfilePath:
         touchpanel = TouchPanel(tpfilePath)
@@ -111,12 +114,14 @@ if __name__ == '__main__':
     context.setContextProperty("_StorageUsage", Storage)
     context.setContextProperty("_Systeminfo", sysinfo)
     context.setContextProperty("_Settting", seting)
+    context.setContextProperty("_LightSensor", light)
 
     cpu.start()
     cputem.start()
     arm.start()
     Storage.start()
     sysinfo.start()
+    light.start()
 
     # view.setSource(url)
     # view.show()

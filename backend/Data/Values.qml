@@ -52,7 +52,8 @@ QtObject {
         _Accelerator.AxisSignal.connect(axischangevalue)
         _Systeminfo.SystemSignal.connect(systeminfo)
         _LedsKey.KeySignal.connect(ledsbuttchange)
-        _TouchPanel.TouchSignal.connect(touchpanelvalue)    
+        _TouchPanel.TouchSignal.connect(touchpanelvalue)
+        _LightSensor.LightSignal.connect(lightvaluechange)  
     }
 
     property int cpu_data: 0
@@ -104,7 +105,7 @@ QtObject {
         
     }
     
-
+    //ram values
     property int ram_data: 0
     property int ram_redata: 0
     function ramchangevalue(value) {
@@ -128,7 +129,7 @@ QtObject {
   
     }
 
-
+    //flash values
     property int flash_data: 0
     property int flash_redata: 0
     function flashchangevalue(value) {
@@ -152,11 +153,10 @@ QtObject {
 
     }
 
-
+    //Accel
     property int displayaxisX: 0
     property int displayaxisY: 0
     property int displayaxisZ: 0
-    // property int displaycount: 0
     function axischangevalue(value,str) {
         if (String(str) == 'x'){
             values.displayaxisX = Number(value)
@@ -167,9 +167,13 @@ QtObject {
         if (String(str) == 'z'){
             values.displayaxisZ = Number(value)
         }
-        // values.displaycount += 1
     }
 
+    //light
+    property int lightvalue: 0
+    function lightvaluechange(value) {
+        values.lightvalue = Number(value) 
+    }
 
     //leds
     property bool f1Visible

@@ -1,9 +1,12 @@
 import QtQuick 2.8
-
+import QtCharts 2.2
+import "backend/Data" as Data
 Item {
     id: light
     width: 833
     height: 480
+
+    property alias lightaxisX: light_x
 
     Image {
         id: light_border
@@ -25,6 +28,37 @@ Item {
         font.styleName: "Regular"
         font.family: "Microsoft YaHei"
     }
+
+    ChartView {
+        id: chartview
+        title: "Light Sensor"
+        anchors.fill: parent
+        antialiasing: true
+
+        //X轴
+        ValueAxis {
+            id: lightAxisX
+            min: 5>=lightaxisXvalue ? 0:lightaxisXvalue-5
+            max: 5>=lightaxisXvalue ? 5:lightaxisXvalue - 1
+            tickCount: 6
+        }
+
+        //Y轴
+        ValueAxis {
+            id: lightAxisY
+            min: 500>=Data.Values.lightvalue ? 0:600
+            max: 500>=Data.Values.lightvalue ? 600:30000
+            tickCount: 7
+        }
+
+        SplineSeries {
+            id:light_x
+            name: "x"
+            axisX: lightAxisX
+            axisY: lightAxisY
+        }  
+    }
+
 }
 
 /*##^##
