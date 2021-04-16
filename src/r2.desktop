@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=R2
+Comment=IconTest Link
+Exec=/home/pi/Python_For_Qt/QML/qml_5/src/r2_start.sh    
+Icon=/home/pi/Python_For_Qt/QML/qml_5/assets/icon.jpg
+Terminal=true
+#StartupNotify=true
+Type=Application
+Categories=Application;Development;
